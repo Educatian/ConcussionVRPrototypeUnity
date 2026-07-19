@@ -1,0 +1,5 @@
+{
+  "name": "ConcussionVR.Runtime",
+  "rootNamespace": "ConcussionVR",
+  "references": ["Unity.ugui"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ConcussionVR.Editor",
+  "rootNamespace": "ConcussionVR.Editor",
+  "references": ["ConcussionVR.Runtime"],
+  "includePlatforms": ["Editor"]
+}

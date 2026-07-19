@@ -1,0 +1,7 @@
+{
+  "name": "ConcussionVR.PlayModeTests",
+  "rootNamespace": "ConcussionVR.PlayModeTests",
+  "references": ["ConcussionVR.Runtime"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}

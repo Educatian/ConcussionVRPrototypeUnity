@@ -1,0 +1,8 @@
+{
+  "name": "ConcussionVR.Tests",
+  "rootNamespace": "ConcussionVR.Tests",
+  "references": ["ConcussionVR.Runtime"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": false
+}

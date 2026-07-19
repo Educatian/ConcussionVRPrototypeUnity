@@ -1,0 +1,42 @@
+﻿[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Unity-generated IDE files
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity crash and profiling artifacts
+sysinfo.txt
+*.stackdump
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vs/
+.vscode/
+.idea/
+
+# Local test and capture scratch files
+TestResults/
+
+# Blender backup/render spill files
+*.blend1
+*.png0001.png
+
