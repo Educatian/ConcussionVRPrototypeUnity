@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -23,7 +24,9 @@ namespace ConcussionVR
                 .Append(record.afterCalm.Total).Append(',')
                 .Append(record.afterPursuit.Total).Append(',')
                 .Append(record.post.Total).Append(',')
-                .Append(record.post.MaximumIncreaseFrom(record.pre)).Append(',')
+                .Append(Math.Max(record.afterCalm.MaximumIncreaseFrom(record.pre),
+                    Math.Max(record.afterPursuit.MaximumIncreaseFrom(record.pre),
+                        record.post.MaximumIncreaseFrom(record.pre)))).Append(',')
                 .Append(record.calmSeconds.ToString("F2", CultureInfo.InvariantCulture)).Append(',')
                 .Append(record.pursuitMeanErrorDegrees.ToString("F3", CultureInfo.InvariantCulture)).Append(',')
                 .Append(record.pursuitSamples).Append(',')

@@ -1,9 +1,39 @@
+using System;
+using System.Globalization;
+using System.IO;
 using NUnit.Framework;
 
 namespace ConcussionVR.Tests
 {
     public sealed class SessionRulesTests
     {
+        [TestCase(5, 2, 2, 4)]
+        [TestCase(2, 6, 3, 5)]
+        [TestCase(1, 2, 7, 6)]
+        [TestCase(4, 0, 0, 3)]
+        public void Export_ReportsMaximumIncreaseAcrossAllCheckpoints(
+            int afterCalm, int afterPursuit, int post, int expectedMaximum)
+        {
+            var record = new SessionRecord
+            {
+                pre = new Symptoms { headache = 1 },
+                afterCalm = new Symptoms { headache = afterCalm },
+                afterPursuit = new Symptoms { headache = afterPursuit },
+                post = new Symptoms { headache = post }
+            };
+            string directory = Path.Combine(Path.GetTempPath(), "ConcussionVR-export-" + Guid.NewGuid().ToString("N"));
+            try
+            {
+                string path = CsvSessionExporter.Export(record, directory);
+                string[] values = File.ReadAllLines(path)[1].Split(',');
+                Assert.That(int.Parse(values[10], CultureInfo.InvariantCulture), Is.EqualTo(expectedMaximum));
+            }
+            finally
+            {
+                if (Directory.Exists(directory)) Directory.Delete(directory, true);
+            }
+        }
+
         [Test]
         public void CanProgress_AllowsIncreaseAtBoundary()
         {
